@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Manga</title>
+</head>
+<body>
+
+{% for a in manga %}
+
+<a href="{% url 'manga_page' a.link %}">{{ a.name }}</a><br>
+
+{% endfor %}
+</body>
+</html>
