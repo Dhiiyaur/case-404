@@ -2,12 +2,22 @@
 <html>
 <head>
 	<title></title>
+	<style>
+		
+		.center {
+		  display: block;
+		  margin-left: auto;
+		  margin-right: auto;
+		  
+		}
+
+	</style>
 </head>
 <body>
 
 {% for a in manga %}
 
-<img src="{{a.image}}" alt=""><br>
+<img src="{{a.image}}" alt="" class="center"><br>
 
 {% endfor %}
 
