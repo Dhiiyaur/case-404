@@ -37,5 +37,5 @@ def chapter_page(request, manga_name, chapter):
 	templates = 'chapter_page.html'
 	
 	image = MH_manga_image(manga_name, chapter)
-	context = {'manga' : image}
+	context = {'manga' : image, 'chapter' : chapter}
 	return render(request, templates, context)
