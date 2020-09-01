@@ -32,7 +32,12 @@ def manga_page(request, manga_name):
 
 	manga_title = f'{manga_name}'
 	manga_title = manga_title.split('-')
-	manga_title = manga_title[0] + ' ' + manga_title[1] + ' ' + manga_title[2] + '...'
+
+	if len(manga_title)>2:
+
+		manga_title = manga_title[0] + ' ' + manga_title[1] + ' ' + manga_title[2] + '...'
+	else:
+		manga_title = manga_title[0]
 
 	context = { 'manga' : chapter, 'manga_name' : manga_name, 'manga_title' : manga_title}
 	return render(request, templates, context)
