@@ -27,8 +27,13 @@ def search_page(request):
 def manga_page(request, manga_name):
 
 	templates = 'manga_page.html'
-
+	templates_eror   = 'error.html'
+	
 	chapter = MH_manga_chapter(manga_name)
+
+	if chapter == None:
+
+		return render(request, templates_eror)
 
 	manga_title = f'{manga_name}'
 	manga_title = manga_title.split('-')

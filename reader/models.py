@@ -2,7 +2,6 @@ from django.db import models
 from bs4 import BeautifulSoup
 import requests
 
-
 # manga_hub
 
 def MH_manga_name(title):
@@ -34,24 +33,30 @@ def MH_manga_name(title):
 
 def MH_manga_chapter(title):
 
+	manga_chapter_results = []
+
 	url = 'https://mangahub.io/manga/' 
 
 	url = url + f'{title}'
 	req = requests.get(url)
 	soup = BeautifulSoup(req.content, 'html.parser')
-	results = soup.find_all(class_="_287KE list-group-item")
 
-	manga_chapter_results = []
+	empty = None
 
-	for data in results:
+	if soup.find_all(class_="_287KE list-group-item"):
+		
+		results = soup.find_all(class_="_287KE list-group-item")
 
-		manga_chapter = {}
-		manga_chapter['chapter_name'] = data.find('a')['href'].rsplit('/', 2)[-1]
-		manga_chapter['link'] = data.find('a')['href'].rsplit('/', 2)[-1]
-		manga_chapter_results.append(manga_chapter)
+		for data in results:
 
-	return manga_chapter_results
+			manga_chapter = {}
+			manga_chapter['chapter_name'] = data.find('a')['href'].rsplit('/', 2)[-1]
+			manga_chapter['link'] = data.find('a')['href'].rsplit('/', 2)[-1]
+			manga_chapter_results.append(manga_chapter)
 
+		return manga_chapter_results
+
+	return empty
 
 def MH_manga_image(manga_name, chapter):
 
