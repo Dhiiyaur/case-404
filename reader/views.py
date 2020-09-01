@@ -29,7 +29,12 @@ def manga_page(request, manga_name):
 	templates = 'manga_page.html'
 
 	chapter = MH_manga_chapter(manga_name)
-	context = { 'manga' : chapter, 'manga_name' : manga_name}
+
+	manga_title = f'{manga_name}'
+	manga_title = manga_title.split('-')
+	manga_title = manga_title[0] + ' ' + manga_title[1] + ' ' + manga_title[2] + '...'
+
+	context = { 'manga' : chapter, 'manga_name' : manga_name, 'manga_title' : manga_title}
 	return render(request, templates, context)
 
 def chapter_page(request, manga_name, chapter):

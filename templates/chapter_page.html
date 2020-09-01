@@ -4,16 +4,10 @@
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>case - 404</title>
 	<style>
 
-		.center {
-		  display: block;
-		  margin-left: auto;
-		  margin-right: auto;
-		  
 		}
 
 		.navbar-nav a{
@@ -23,7 +17,6 @@
 
     	.navbar-dark .navbar-brand{
         text-transform: uppercase;
-        font-weight: bold;
 
     }
 
@@ -48,13 +41,11 @@
 	    </ul>
 	  </div>
   </nav>
-
-<div class="image_image">
 	{% for a in manga %}
 
-		<img src="{{a.image}}" alt="" class="center"><br>
+		<img src="{{a.image}}" class="img-fluid" alt=""><br>
 
 	{% endfor %}
-</div>
+
 </body>
 </html>
